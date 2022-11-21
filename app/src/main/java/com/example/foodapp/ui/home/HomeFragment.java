@@ -86,8 +86,7 @@ public class HomeFragment extends Fragment {
     }
     public void observerCategoriesLocal(){
         homeViewModel.getLiveDataLocalCategories().observe(getViewLifecycleOwner(), categoryItems -> {
-            ArrayList<CategoryItem> categoryItemArrayList = new ArrayList<>();
-            categoryItemArrayList.addAll(categoryItems);
+            ArrayList<CategoryItem> categoryItemArrayList = new ArrayList<>(categoryItems);
             adapterCategory.updateList(categoryItemArrayList);
         });
     }
