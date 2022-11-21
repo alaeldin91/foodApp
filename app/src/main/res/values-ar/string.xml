@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><!-- Home -->
+<resources>
+    <string name="app_name">FoodApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="Notification">Notification</string>
+
+    <string name="menu_home">الصفحة الرئيسية </string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="likeEat">ماذ تحب ان تاكل</string>\
+    <string name="overPopular">أكثر من شعبية للعناصر</string>>
+    over popular for items
+    <string name="category">الاصناف</string>
+
+</resources>
