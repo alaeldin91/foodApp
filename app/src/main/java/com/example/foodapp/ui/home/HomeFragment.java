@@ -5,21 +5,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import com.bumptech.glide.Glide;
 import com.example.foodapp.adapter.AdapterCategory;
 import com.example.foodapp.adapter.AdapterPopularMeal;
 import com.example.foodapp.databinding.FragmentHomeBinding;
 import com.example.foodapp.model.CategoryItem;
 import com.example.foodapp.model.MealItem;
-
 import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -50,13 +46,15 @@ public class HomeFragment extends Fragment {
         untilizeRecyclerPopularMealView();
         untilizeRecyclerCategoryView();
         observerRandomMealListItem();
-        observerPublicMealListItem();
+        observerPopularMealListItem();
         observerGetCategory();
         observerPopularGeMealLocal();
+        observerCategoriesLocal();
         homeViewModel.observerRandomMealListItem();
         homeViewModel.observerPopularMealListItem();
         homeViewModel.observerCategoryListItem();
         homeViewModel.getLocalPopularMeal();
+        homeViewModel.getLocalCategories();
 
     }
 
@@ -68,24 +66,33 @@ public class HomeFragment extends Fragment {
         homeViewModel.getRandomMealList().observe(getViewLifecycleOwner(), this::updateList);
     }
     public void observerGetCategory(){
-        homeViewModel.getCategoryItem().observe(getViewLifecycleOwner(), new Observer<ArrayList<CategoryItem>>() {
-            @Override
-            public void onChanged(ArrayList<CategoryItem> categoryItems) {
-                 adapterCategory.updateList(categoryItems);
+        homeViewModel.getCategoryItem().observe(getViewLifecycleOwner(), categoryItems -> {
+            for (int i= 0; i< categoryItems.size();i++){
+                CategoryItem categoryItem = categoryItems.get(i);
+                homeViewModel.insertCategoryItem(categoryItem);
             }
+             adapterCategory.updateList(categoryItems);
         });
 
     }
     public void observerPopularGeMealLocal() {
         homeViewModel.getMealPopularList("Seafood").observe(getViewLifecycleOwner(), mealItems -> {
             ArrayList<MealItem> mealItemArrayList = new ArrayList<>(mealItems);
-            Glide.with(this).load(mealItemArrayList.get(0).getStrMealThumb()).into(binding.imgRandomMeal);
             adapterPopularMeal.updateList(mealItemArrayList);
+            Glide.with(this).load(mealItemArrayList.get(1).getStrMealThumb()).into(binding.imgRandomMeal);
+
         });
 
     }
+    public void observerCategoriesLocal(){
+        homeViewModel.getLiveDataLocalCategories().observe(getViewLifecycleOwner(), categoryItems -> {
+            ArrayList<CategoryItem> categoryItemArrayList = new ArrayList<>();
+            categoryItemArrayList.addAll(categoryItems);
+            adapterCategory.updateList(categoryItemArrayList);
+        });
+    }
 
-    public void observerPublicMealListItem() {
+    public void observerPopularMealListItem() {
         homeViewModel.getMealPopularListItem().observe(getViewLifecycleOwner(), mealItems -> {
             for (int i = 0; i < mealItems.size(); i++) {
                 MealItem mealItem = mealItems.get(i);

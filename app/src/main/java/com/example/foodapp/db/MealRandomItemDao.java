@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
+import com.example.foodapp.model.CategoryItem;
 import com.example.foodapp.model.MealItem;
 
 import java.util.ArrayList;
@@ -14,8 +15,6 @@ import java.util.List;
 public interface MealRandomItemDao {
     @Insert
     void insertRandomMealItem(MealItem mealItem);
-    @Query("SELECT * FROM MealDb")
+    @Query("SELECT * FROM mealDb")
     LiveData<List<MealItem>> getMeal();
-
-
 }

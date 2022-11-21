@@ -23,12 +23,14 @@ public class HomeViewModel extends ViewModel {
     private final MealRepository mealRepository;
     private final CategoryRepository categoryRepository;
     private LiveData<List<MealItem>> mealItemPopular;
+    private LiveData<List<CategoryItem>> categoryLocalItem;
 
     @Inject
     public HomeViewModel(MealRepository mealRepository, CategoryRepository categoryRepository) {
         this.mealRepository = mealRepository;
         this.categoryRepository = categoryRepository;
         this.mealItemPopular = mealRepository.getLocalPopularMealItem();
+        this.categoryLocalItem = categoryRepository.getLocalCategoryList();
     }
 
     public MutableLiveData<ArrayList<CategoryItem>> getCategoryItem() {
@@ -46,10 +48,16 @@ public class HomeViewModel extends ViewModel {
     public LiveData<List<MealItem>> getMealPopularList(String popular) {
         return mealItemPopular;
     }
+    public void insertCategoryItem(CategoryItem categoryItem){
+        categoryRepository.insertCategoryItem(categoryItem);
+    }
 
     public void insertRandomMealItem(MealItem mealItem) {
 
         mealRepository.insertRandomMealItem(mealItem);
+    }
+    public LiveData<List<CategoryItem>> getLiveDataLocalCategories(){
+        return categoryLocalItem;
     }
 
     public void observerCategoryListItem() {
@@ -81,6 +89,9 @@ public class HomeViewModel extends ViewModel {
     public void getLocalPopularMeal() {
         this.mealItemPopular = mealRepository.getLocalPopularMealItem();
 
+    }
+    public void getLocalCategories(){
+        this.categoryLocalItem = categoryRepository.getLocalCategoryList();
     }
 
 }

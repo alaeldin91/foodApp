@@ -4,6 +4,7 @@ import android.app.Application;
 
 import androidx.room.Room;
 
+import com.example.foodapp.db.CategoryItemDao;
 import com.example.foodapp.db.FoodDb;
 import com.example.foodapp.db.MealRandomItemDao;
 
@@ -26,7 +27,12 @@ public class DataBaseModule {
 
     @Provides
     @Singleton
-    public static MealRandomItemDao provideFoodDb(FoodDb foodDb) {
+    public static MealRandomItemDao provideFoodDbMale(FoodDb foodDb) {
         return foodDb.mealRandomItemDao();
+    }
+    @Provides
+    @Singleton
+    public static CategoryItemDao provideFoodDbCategory(FoodDb foodDb){
+        return foodDb.categoryItemDao();
     }
 }

@@ -1,9 +1,14 @@
 package com.example.foodapp.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
+@Entity(tableName = "categoryDb")
 public class CategoryItem {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     @SerializedName("idCategory")
     @Expose
     private String idCategory;
@@ -16,6 +21,14 @@ public class CategoryItem {
     @SerializedName("strCategoryDescription")
     @Expose
     private String strCategoryDescription;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getIdCategory() {
         return idCategory;
