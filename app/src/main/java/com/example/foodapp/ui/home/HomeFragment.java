@@ -78,16 +78,19 @@ public class HomeFragment extends Fragment {
     public void observerPopularGeMealLocal() {
         homeViewModel.getMealPopularList("Seafood").observe(getViewLifecycleOwner(), mealItems -> {
             ArrayList<MealItem> mealItemArrayList = new ArrayList<>(mealItems);
-            adapterPopularMeal.updateList(mealItemArrayList);
-            Glide.with(this).load(mealItemArrayList.get(1).getStrMealThumb()).into(binding.imgRandomMeal);
-
+            if (mealItemArrayList.size()>0) {
+                adapterPopularMeal.updateList(mealItemArrayList);
+                Glide.with(this).load(mealItemArrayList.get(1).getStrMealThumb()).into(binding.imgRandomMeal);
+            }
         });
 
     }
     public void observerCategoriesLocal(){
         homeViewModel.getLiveDataLocalCategories().observe(getViewLifecycleOwner(), categoryItems -> {
             ArrayList<CategoryItem> categoryItemArrayList = new ArrayList<>(categoryItems);
-            adapterCategory.updateList(categoryItemArrayList);
+            if (categoryItemArrayList.size()>0) {
+                adapterCategory.updateList(categoryItemArrayList);
+            }
         });
     }
 
