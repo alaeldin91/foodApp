@@ -1,6 +1,7 @@
 package com.example.foodapp.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements AdapterCategory.OnItemClickCategory {
 
     ImageView randomListItemImageFirst;
     ArrayList<MealItem> mealItemPopularArrayList;
@@ -120,7 +121,7 @@ public class HomeFragment extends Fragment {
     public void untilizeRecyclerCategoryView(){
         binding.recyclerCatogries.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL,false));
-        adapterCategory = new AdapterCategory(getContext(),categoryItems);
+        adapterCategory = new AdapterCategory(getContext(),categoryItems,this::onItemClickCategory);
         binding.recyclerCatogries.setAdapter(adapterCategory);
 
     }
@@ -131,4 +132,8 @@ public class HomeFragment extends Fragment {
         binding = null;
     }
 
+    @Override
+    public void onItemClickCategory(View view,int position) {
+        Log.i("ala",position+"");
+    }
 }

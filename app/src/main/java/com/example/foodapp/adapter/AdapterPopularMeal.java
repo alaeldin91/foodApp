@@ -2,6 +2,7 @@ package com.example.foodapp.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 
 public class AdapterPopularMeal extends RecyclerView.Adapter<AdapterPopularMeal.PopularMealHolder> {
     private final Context context;
-    private  ArrayList<MealItem> popularMealItem;
+    private ArrayList<MealItem> popularMealItem;
     private PopularItemBinding popularItemBinding;
 
     public AdapterPopularMeal(Context context, ArrayList<MealItem> popularMealItem) {
@@ -42,15 +43,20 @@ public class AdapterPopularMeal extends RecyclerView.Adapter<AdapterPopularMeal.
         return popularMealItem == null ? 0 : popularMealItem.size();
     }
 
+    public void updateList(ArrayList<MealItem> popularMealItem) {
+        this.popularMealItem = popularMealItem;
+        notifyDataSetChanged();
+    }
+
+
     public class PopularMealHolder extends RecyclerView.ViewHolder {
         private final PopularItemBinding popularItemBinding;
+
         public PopularMealHolder(@NonNull PopularItemBinding popularItemBinding) {
             super(popularItemBinding.getRoot());
+
             this.popularItemBinding = popularItemBinding;
+
         }
-    }
-    public void updateList(ArrayList<MealItem> popularMealItem){
-        this.popularMealItem= popularMealItem;
-       notifyDataSetChanged();
     }
 }

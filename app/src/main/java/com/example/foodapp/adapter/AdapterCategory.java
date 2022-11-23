@@ -3,6 +3,7 @@ package com.example.foodapp.adapter;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -18,10 +19,11 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Catego
     private Context context;
     private ArrayList<CategoryItem> categoryItems;
     private CategoryItemBinding categoryItemBinding;
-
-    public AdapterCategory(Context context, ArrayList<CategoryItem> categoryItems) {
+    public OnItemClickCategory onItemClickCategory;
+    public AdapterCategory(Context context, ArrayList<CategoryItem> categoryItems,OnItemClickCategory onItemClickCategory) {
         this.context = context;
         this.categoryItems = categoryItems;
+        this.onItemClickCategory= onItemClickCategory;
     }
 
     @NonNull
@@ -51,12 +53,23 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Catego
         notifyDataSetChanged();
     }
 
+    public interface OnItemClickCategory {
+        public void onItemClickCategory(View view,int position);
+    }
+
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
         private final CategoryItemBinding categoryItemBinding;
 
         public CategoryViewHolder(@NonNull CategoryItemBinding categoryItemBinding) {
             super(categoryItemBinding.getRoot());
             this.categoryItemBinding = categoryItemBinding;
+            categoryItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onItemClickCategory.onItemClickCategory(view,getAdapterPosition());
+                }
+            });
+
         }
     }
 }
