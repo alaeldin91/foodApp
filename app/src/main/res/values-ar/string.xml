@@ -17,5 +17,13 @@
     <string name="overPopular">أكثر من شعبية للعناصر</string>>
     over popular for items
     <string name="category">الاصناف</string>
+<string name="register">تسجيل</string>
+    <string name="signUp">التسجيل</string>
+    <string name="firstName">الاسم الاول</string>
+    <string name="secondName">الاسم الثاني</string>
+    <string name="phoneNumber">رقم الهاتف</string>
+    <string name="email">الايميل</string>
+    <string name="password">كلمة السر</string>
+    <string name="confirmPassword">تاكيد كلمة السر</string>
 
 </resources>

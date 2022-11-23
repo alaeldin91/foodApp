@@ -16,5 +16,14 @@
     <string name="likeEat">What Would like eat </string>
     <string name="overPopular">over popular for items</string>>
     <string name="category">Categories</string>
+    <!-- Strings related to login -->
+   <string name="register">Register</string>
+    <string name="signUp">SignUp </string>
+    <string name="firstName">FirstName</string>
+    <string name="secondName">SecondName</string>
+    <string name="phoneNumber">PhoneNumber</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmPassword">ConfirmPassword</string>
 
 </resources>
