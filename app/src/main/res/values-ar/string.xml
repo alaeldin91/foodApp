@@ -25,5 +25,26 @@
     <string name="email">الايميل</string>
     <string name="password">كلمة السر</string>
     <string name="confirmPassword">تاكيد كلمة السر</string>
+    <string name="login">دخول</string>
+    <string name="registerNow">سجل الان </string>
+    <string name="forgetPassword">تعيين كلمة السر </string>
+    <string name="enterFirstName">من فضلك ادخل الاسم الاول</string>
+    <string name="enterSecondName">من فضلك ادخل الاسم الثاني</string>
+    <string name="enterPhoneNumber">من فضلك ادخل رقم الهاتف</string>
+    <string name="enterEmail">من فضلك ادخل الايميل</string>
+    <string name="enterPassword">من فضلك ادخل كلمة المرور</string>
+    <string name="enterConfirmPassword">من فضلك ادخل   تاكيد كلمة المرور</string>
+    <string name="errorConfirmPassword">خطا في تاكيد كلمة السر</string>
+    <string name="errorDescConfirmPassword">كلمة السر غير متشابهة اعد كتابة كلمة السر بصورة صحيحة</string>
+    <string name="ok">تم</string>
+    <string name="verficationUser">تاكيد المستخدم</string>
+    <string name="login_cancelled">الغاء تسجيل الدخول</string>
+    <string name="no_Internet"> الانترنت غير متوفر</string>
+    <string name="un_known_Error"> خطا غير معروف</string>
+    <string name="un_known_SignIn">خطا في الدخول</string>
+    <string name="logout">تسحيل خروج</string>
+
+
+
 
 </resources>

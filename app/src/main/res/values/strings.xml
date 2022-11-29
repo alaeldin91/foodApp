@@ -17,7 +17,7 @@
     <string name="overPopular">over popular for items</string>>
     <string name="category">Categories</string>
     <!-- Strings related to login -->
-   <string name="register">Register</string>
+    <string name="register">Register</string>
     <string name="signUp">SignUp </string>
     <string name="firstName">FirstName</string>
     <string name="secondName">SecondName</string>
@@ -25,5 +25,22 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="confirmPassword">ConfirmPassword</string>
-
+    <string name="login">Login</string>
+    <string name="registerNow">Register Now</string>
+    <string name="forgetPassword">Forget Password</string>
+    <string name="enterFirstName">please enter First Name </string>
+    <string name="enterSecondName">please enter Second Name </string>
+    <string name="enterPhoneNumber">please enter Phone Number</string>
+    <string name="enterEmail">please enter Email Number</string>
+    <string name="enterPassword">please enter Password</string>
+    <string name="enterConfirmPassword">please enter Confirm Password</string>
+    <string name="errorConfirmPassword">Error confirm password</string>
+    <string name="errorDescConfirmPassword">Password is not Same Confirm Password please enter again</string>
+    <string name="ok">Ok</string>
+    <string name="verficationUser">Verfication User</string>
+    <string name="login_cancelled">Login Cancelled</string>
+    <string name="no_Internet">Internet Is Not Available </string>
+    <string name="un_known_Error">Error is un Known </string>
+    <string name="un_known_SignIn">Un known Login</string>
+    <string name="logout">Logout</string>
 </resources>
