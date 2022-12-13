@@ -10,51 +10,54 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.core.widget.NestedScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <LinearLayout
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_marginStart="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_1sdp"
+                    app:cardCornerRadius="@dimen/_20sdp"
+                    app:cardElevation="@dimen/_15sdp"
+                    app:cardMaxElevation="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <com.google.android.material.card.MaterialCardView
+                    <ImageView
+                        android:id="@+id/imageLogin"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/_1sdp"
-                        android:layout_marginTop="@dimen/_1sdp"
-                        android:layout_marginEnd="@dimen/_1sdp"
-                        android:layout_marginBottom="@dimen/_1sdp"
-                        app:cardCornerRadius="@dimen/_20sdp"
-                        app:cardElevation="@dimen/_15sdp"
-                        app:cardMaxElevation="@dimen/_15sdp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
+                        android:layout_height="@dimen/_220sdp"
+                        android:background="@drawable/login"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="center" />
+                </com.google.android.material.card.MaterialCardView>
 
-                        <ImageView
-                            android:id="@+id/imageLogin"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/_220sdp"
-                            android:background="@drawable/login"
-                            android:fitsSystemWindows="true"
-                            android:scaleType="center" />
-                    </com.google.android.material.card.MaterialCardView>
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/conTextField">
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/phoneNumberLayout"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/phoneNumberLayout"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:hint="@string/phoneNumber"
-                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="HardcodedText">
 
@@ -69,6 +72,7 @@
                             android:fontFamily="@font/poppinsmedium"
                             android:inputType="text" />
                     </com.google.android.material.textfield.TextInputLayout>
+
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -76,14 +80,15 @@
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLayout"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:hint="@string/password"
                         app:endIconMode="password_toggle"
                         app:endIconTint="#000"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/phoneNumberLayout"
                         tools:ignore="HardcodedText">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/passwordEdt"
                             android:layout_width="match_parent"
@@ -95,52 +100,59 @@
                             android:fontFamily="@font/poppinsmedium"
                             android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                <LinearLayout
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@+id/conTextField"
+                    >
                     <Button
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         android:id="@+id/forgetPassword"
-                        style="@style/Widget.Material3.Button.TextButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppinsbold"
-                        android:layout_gravity="end"
-                        android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
+                        android:fontFamily="@font/poppinsbold"
                         android:text="@string/forgetPassword"
                         android:textSize="@dimen/_13sdp" />
+
                     <Button
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         android:id="@+id/signup"
-                        style="@style/Widget.Material3.Button.TextButton"
+                        style="@style/Widget.MaterialComponents.Button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="start"
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
                         android:layout_marginBottom="@dimen/_5sdp"
                         android:fontFamily="@font/poppinsbold"
                         android:text="@string/registerNow"
-                        android:layout_gravity="start"
                         android:textSize="@dimen/_13sdp" />
-                </LinearLayout>
-                    <Button
-                        android:id="@+id/login"
-                        style="@style/Widget.MaterialComponents.Button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_40sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:fontFamily="@font/poppinsbold"
-                        android:text="@string/login"
-                        android:textColor="#000"
-                        android:textSize="@dimen/_15sdp" />
-                </LinearLayout>
-            </androidx.core.widget.NestedScrollView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/login"
+                    style="@style/Widget.MaterialComponents.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_40sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fontFamily="@font/poppinsbold"
+                    android:text="@string/login"
+                    android:textColor="#000"
+                    android:textSize="@dimen/_15sdp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

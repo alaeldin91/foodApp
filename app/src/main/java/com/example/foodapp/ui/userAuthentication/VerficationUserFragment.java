@@ -40,14 +40,16 @@ public class VerficationUserFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = FragmentVerficationUserBinding.inflate(inflater, container, false);
+        binding = FragmentVerficationUserBinding.
+                inflate(inflater, container, false);
         return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding.appBarVerfication.textToolBar.setText(getString(R.string.verficationUser));
+        binding.appBarVerfication.textToolBar
+                .setText(getString(R.string.verficationUser));
         root = binding.appBarVerfication.root;
         preferencesHelper = new PreferencesHelper(getActivity());
         registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
@@ -109,6 +111,7 @@ public class VerficationUserFragment extends Fragment {
 
     private void saveInformationUserData() {
         String phoneNumber = Objects.requireNonNull(firebaseAuth.getCurrentUser()).getPhoneNumber();
+        preferencesHelper.putString("phoneNumber",phoneNumber);
         String firstName = preferencesHelper.getString("firstName");
         String secondName = preferencesHelper.getString("secondName");
         String email = preferencesHelper.getString("email");

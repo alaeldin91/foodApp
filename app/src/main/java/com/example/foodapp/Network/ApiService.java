@@ -5,6 +5,7 @@ import com.example.foodapp.model.MealList;
 import com.example.foodapp.model.RegisterModel;
 
 import io.reactivex.rxjava3.core.Observable;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -20,6 +21,8 @@ public interface ApiService {
 
     @GET("categories.php")
     Observable<CategoryList> getCategory();
+    @GET("lookup.php?")
+    Observable<MealList> getDetailMeal(@Query("i") String id);
 
 
 }

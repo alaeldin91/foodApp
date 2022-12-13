@@ -37,6 +37,9 @@ public class MealRepository {
     public LiveData<List<MealItem>> getLocalPopularMealItem(){
         return mealRandomItemDao.getMeal();
     }
+    public Observable<MealList> getDetailsMeals(String id){
+        return  apiService.getDetailMeal(id);
+    }
 
 
 }

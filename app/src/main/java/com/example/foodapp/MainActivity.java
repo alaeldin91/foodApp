@@ -1,12 +1,15 @@
 package com.example.foodapp;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -14,31 +17,28 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
 import com.example.foodapp.databinding.ActivityMainBinding;
+import com.example.foodapp.helper.PreferencesHelper;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.navigation.NavigationView;
-
 import java.io.File;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
     DrawerLayout drawer;
     NavigationView navigationView;
     BottomNavigationView bottomNavigationView;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private NavController navController;
-
+   private PreferencesHelper preferencesHelper;
     private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
             String[] children = dir.list();
-            for (int i = 0; i < children.length; i++) {
-                boolean success = deleteDir(new File(dir, children[i]));
+            for (String child : children) {
+                boolean success = deleteDir(new File(dir, child));
                 if (!success) {
                     return false;
                 }
@@ -59,10 +59,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void logout() {
+        preferencesHelper.putString("phoneNumber","");
+        preferencesHelper.putString("password","");
         trimCache(this);
         AuthUI.getInstance().signOut(MainActivity.this).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 startActivity(new Intent(MainActivity.this, UserAuthentication.class));
+
             } else {
                 Toast.makeText(this, " the Logout is problem", Toast.LENGTH_SHORT).show();
             }
@@ -76,7 +79,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if ((dir != null) && (dir.isDirectory())) {
                 deleteDir(dir);
             }
-        } catch (Exception e) {
+        }
+        catch (Exception ignored) {
         }
     }
 
@@ -88,45 +92,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
                 .setOpenableLayout(drawer)
                 .build();
-        navController = Navigation.findNavController(this, R.id.fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-        NavigationUI.setupWithNavController(bottomNavigationView, navController);
+       NavController navController = Navigation.findNavController(this, R.id.fragment);
+       NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+       NavigationUI.setupWithNavController(navigationView, navController);
+       NavigationUI.setupWithNavController(bottomNavigationView, navController);
         binding.appBarMain.textToolBar.setText(getString(R.string.menu_home));
-        //AppBarConfiguration appBarBottomConfiguration = new AppBarConfiguration.Builder(
-        //      R.id.home, R.id.favourite)
-        //    .build();
-        navigationView.setNavigationItemSelectedListener(this);
-        //  NavigationUI.setupActionBarWithNavController(this, navController, appBarBottomConfiguration);
+        AppBarConfiguration appBarBottomConfiguration = new AppBarConfiguration.Builder(
+              R.id.home, R.id.favourite)
+            .build();
+       navigationView.setNavigationItemSelectedListener(this);
+          NavigationUI.setupActionBarWithNavController(this, navController, appBarBottomConfiguration);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        preferencesHelper = new PreferencesHelper(this);
     }
 
-    /**  private void eventBottomNavigation() {
-     bottomNavigationView.setOnItemSelectedListener(item -> {
-     NavigationUI.onNavDestinationSelected(item, navController);
-     Fragment fragment;
-     int id = item.getItemId();
-     if (id == R.id.home) {
-     fragment = new HomeFragment();
-     loadFragment(fragment);
-     return true;
-     } else if (id == R.id.favourite) {
-     fragment = new FavouriteFragment();
-     Log.i("fragment", fragment + "");
-     loadFragment(fragment);
-     return true;
-     }
-     return false;
-     });
-     }**/
-    /**
-     * private void loadFragment(Fragment fragment) {
-     * FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-     * fragmentTransaction.replace(R.id.fragment, fragment);
-     * fragmentTransaction.addToBackStack(null);
-     * fragmentTransaction.commit();
-     * }
-     **/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -147,8 +126,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.navLogout) {
-            logout();
+            showDialogLogout(navigationView);
         }
         return false;
+    }
+
+    public void showDialogLogout(View v) {
+        Dialog dialogLogout = new Dialog(v.getContext());
+        dialogLogout.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogLogout.setContentView(R.layout.dialoge_logout);
+        dialogLogout.setCancelable(true);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        layoutParams.copyFrom(dialogLogout.getWindow().getAttributes());
+        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+        layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT;
+        MaterialButton ok = dialogLogout.findViewById(R.id.btnLogout);
+        MaterialButton cancel = dialogLogout.findViewById(R.id.btnCancel);
+        dialogLogout.show();
+        ok.setOnClickListener(view -> logout());
+        cancel.setOnClickListener(view -> dialogLogout.dismiss());
     }
 }

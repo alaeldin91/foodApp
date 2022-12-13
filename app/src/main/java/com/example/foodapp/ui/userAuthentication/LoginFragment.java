@@ -17,6 +17,7 @@ import com.example.foodapp.MainActivity;
 import com.example.foodapp.R;
 import com.example.foodapp.UserAuthentication;
 import com.example.foodapp.databinding.FragmentLoginBinding;
+import com.example.foodapp.helper.PreferencesHelper;
 import com.example.foodapp.model.LoginModel;
 import com.example.foodapp.respository.UserAuthenticationRepository;
 
@@ -29,6 +30,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class LoginFragment extends Fragment {
     private FragmentLoginBinding binding;
     private LoginViewModel loginViewModel;
+    private PreferencesHelper preferencesHelper;
 
 
     @Override
@@ -68,7 +70,11 @@ public class LoginFragment extends Fragment {
         binding.login.setOnClickListener(view -> {
             String phoneNumber = binding.phoneNumberEdt.getText().toString();
             String password = binding.passwordEdt.getText().toString();
-            loginViewModel.observerLogin(phoneNumber, password, getActivity());
+            preferencesHelper = new PreferencesHelper(getContext());
+            preferencesHelper.putString("phoneNumber",phoneNumber);
+            preferencesHelper.putString("password",password);
+            loginViewModel.observerLogin(phoneNumber, password,
+                    getActivity(),binding.phoneNumberEdt,binding.passwordEdt);
 
         });
 

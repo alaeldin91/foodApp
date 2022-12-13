@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    style="@style/MaterialAlertDialog.Material3"
     android:background="#927A7A"
     android:fitsSystemWindows="true"
     android:fontFamily="@font/poppinsmedium"
@@ -12,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
         android:background="#927A7A">
-    <com.google.android.material.card.MaterialCardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardView"
             android:layout_width="@dimen/_250sdp"
             android:layout_height="wrap_content"
@@ -27,7 +26,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
             <LinearLayout
                 android:id="@+id/linear"
                 android:layout_width="match_parent"
@@ -40,13 +38,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="@string/errorConfirmPassword"
+                    android:text="@string/loginError"
                     android:textColor="@color/colorSurface"
                     android:textSize="@dimen/_15sdp"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText,TextContrastCheck" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
-
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cardDesc"
             android:layout_width="@dimen/_250sdp"
@@ -73,26 +70,28 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:fontFamily="@font/poppinsmedium"
                     android:text="@string/errorDescConfirmPassword"
                     android:textColor="@color/colorSurface"
-                    android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_marginStart="@dimen/_10sdp"
-                    android:layout_marginBottom="@dimen/_10sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:fontFamily="@font/poppinsmedium"
                     android:textSize="@dimen/_10sdp"
-                    tools:ignore="HardcodedText" />
+                    tools:ignore="HardcodedText,TextContrastCheck" />
+
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnok"
+                    android:id="@+id/btnokLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
+                    android:text="@string/ok"
+                    android:textStyle="bold"
+                    app:cornerRadius="@dimen/_20sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:cornerRadius="@dimen/_20sdp"
-                    android:text="@string/ok"
-                    android:textStyle="bold" />
+                    tools:ignore="TextContrastCheck" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
     </androidx.constraintlayout.widget.ConstraintLayout>

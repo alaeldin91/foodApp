@@ -1,6 +1,7 @@
 package com.example.foodapp.respository;
 
 import com.example.foodapp.Network.ApiAuthService;
+import com.example.foodapp.model.ForgetPassword;
 import com.example.foodapp.model.LoginModel;
 import com.example.foodapp.model.RegisterModel;
 
@@ -25,4 +26,7 @@ public class UserAuthenticationRepository {
         return apiService.login(phoneNumber, password);
     }
 
+    public Observable<ForgetPassword> forgetPassword(String newPassword, String phoneNumber) {
+        return apiService.forgetPassword(newPassword, phoneNumber);
+    }
 }

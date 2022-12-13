@@ -24,7 +24,6 @@ public class NetworkModule {
     @Provides
     @Singleton
     public ApiService provideMealApiService() {
-
         return new Retrofit.Builder().baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build().create(ApiService.class);
     }

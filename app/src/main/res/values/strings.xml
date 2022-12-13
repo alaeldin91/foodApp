@@ -15,7 +15,7 @@
     <!-- Home String  -->
     <string name="likeEat">What Would like eat </string>
     <string name="overPopular">over popular for items</string>>
-    <string name="category">Categories</string>
+    <string name="categories">Categories</string>
     <!-- Strings related to login -->
     <string name="register">Register</string>
     <string name="signUp">SignUp </string>
@@ -43,4 +43,12 @@
     <string name="un_known_Error">Error is un Known </string>
     <string name="un_known_SignIn">Un known Login</string>
     <string name="logout">Logout</string>
+    <string name="cancel">Cancel</string>
+    <string name="logoutDesc">your logout click ok to Logout or Cancel to cancel Logout</string>
+    <string name="loginError">Login Error</string>
+    <string name="errorLoginDesc">please Rewrite Correct Mobile Number or Correct Password</string>
+    <string name="changePassword">ChangePassword</string>
+     <string name="mealName">Meal Name</string>
+    <string name="category">Category</string>
+
 </resources>

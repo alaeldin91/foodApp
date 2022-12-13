@@ -1,5 +1,6 @@
 package com.example.foodapp.Network;
 
+import com.example.foodapp.model.ForgetPassword;
 import com.example.foodapp.model.LoginModel;
 import com.example.foodapp.model.RegisterModel;
 
@@ -19,4 +20,11 @@ public interface ApiAuthService {
     @POST("login.php")
     @FormUrlEncoded
     Observable<LoginModel> login(@Field("tel") String phoneNumber, @Field("password") String password);
+    @POST("UpdatePassword.php")
+    @FormUrlEncoded
+    Observable<ForgetPassword> forgetPassword(@Field("newPassword")String newPassword,@Field("phoneNumber")String phoneNumber);
+
+
+
+
 }

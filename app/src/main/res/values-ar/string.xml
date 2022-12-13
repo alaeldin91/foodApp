@@ -16,8 +16,8 @@
     <string name="likeEat">ماذ تحب ان تاكل</string>\
     <string name="overPopular">أكثر من شعبية للعناصر</string>>
     over popular for items
-    <string name="category">الاصناف</string>
-<string name="register">تسجيل</string>
+    <string name="categories">الاصناف</string>
+    <string name="register">تسجيل</string>
     <string name="signUp">التسجيل</string>
     <string name="firstName">الاسم الاول</string>
     <string name="secondName">الاسم الثاني</string>
@@ -43,8 +43,13 @@
     <string name="un_known_Error"> خطا غير معروف</string>
     <string name="un_known_SignIn">خطا في الدخول</string>
     <string name="logout">تسحيل خروج</string>
-
-
+    <string name="cancel">الغاء</string>
+    <string name="logoutDesc">انت علي وشك الخروج اضغط علي موافق  لتسجيل الخروج او الغاء الخروج</string>
+    <string name="loginError">خطا في الدخول</string>
+    <string name="errorLoginDesc">خطا في الدخول اعادة كتابة كلمة المرور او رقم الهانف</string>
+    <string name="changePassword">تغير كلمة السر</string>
+    <string name="mealName">اسم الوجبة</string>
+    <string name="category">الصنف</string>
 
 
 </resources>

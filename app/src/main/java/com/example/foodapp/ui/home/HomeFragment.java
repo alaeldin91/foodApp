@@ -1,22 +1,28 @@
 package com.example.foodapp.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.bumptech.glide.Glide;
+import com.example.foodapp.ui.DetailsMeals.ShowRandomMeals;
 import com.example.foodapp.adapter.AdapterCategory;
 import com.example.foodapp.adapter.AdapterPopularMeal;
 import com.example.foodapp.databinding.FragmentHomeBinding;
+import com.example.foodapp.helper.PreferencesHelper;
 import com.example.foodapp.model.CategoryItem;
 import com.example.foodapp.model.MealItem;
+
 import java.util.ArrayList;
 
 import dagger.hilt.android.AndroidEntryPoint;
@@ -27,11 +33,11 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     ImageView randomListItemImageFirst;
     ArrayList<MealItem> mealItemPopularArrayList;
     ArrayList<CategoryItem> categoryItems;
+    PreferencesHelper preferencesHelper;
     private FragmentHomeBinding binding;
     private HomeViewModel homeViewModel;
     private AdapterPopularMeal adapterPopularMeal;
     private AdapterCategory adapterCategory;
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +62,6 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
         homeViewModel.observerCategoryListItem();
         homeViewModel.getLocalPopularMeal();
         homeViewModel.getLocalCategories();
-
     }
 
     public void utilizeView() {
@@ -66,30 +71,50 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     private void observerRandomMealListItem() {
         homeViewModel.getRandomMealList().observe(getViewLifecycleOwner(), this::updateList);
     }
-    public void observerGetCategory(){
+
+    private void onRandomClickListener(ArrayList<MealItem> mealItemArrayList) {
+        binding.imgRandomMeal.setOnClickListener(view -> {
+            preferencesHelper = new PreferencesHelper(getActivity());
+            String idMeal = mealItemArrayList.get(1).getIdMeal();
+            String mealNAME = mealItemArrayList.get(1).getStrMeal();
+            String mealThumb = mealItemArrayList.get(1).getStrMealThumb();
+            String categoryName = mealItemArrayList.get(1).getStrCategory();
+            preferencesHelper.putString("idMeal", idMeal);
+            preferencesHelper.putString("mealNAME", mealNAME);
+            preferencesHelper.putString("mealThumb", mealThumb);
+            preferencesHelper.putString("categoryName", categoryName);
+            startActivity(new Intent(getActivity(), ShowRandomMeals.class));
+        });
+
+    }
+
+    public void observerGetCategory() {
         homeViewModel.getCategoryItem().observe(getViewLifecycleOwner(), categoryItems -> {
-            for (int i= 0; i< categoryItems.size();i++){
+            for (int i = 0; i < categoryItems.size(); i++) {
                 CategoryItem categoryItem = categoryItems.get(i);
                 homeViewModel.insertCategoryItem(categoryItem);
             }
-             adapterCategory.updateList(categoryItems);
+            adapterCategory.updateList(categoryItems);
         });
 
     }
+
     public void observerPopularGeMealLocal() {
         homeViewModel.getMealPopularList("Seafood").observe(getViewLifecycleOwner(), mealItems -> {
             ArrayList<MealItem> mealItemArrayList = new ArrayList<>(mealItems);
-            if (mealItemArrayList.size()>0) {
+            if (mealItemArrayList.size() > 0) {
                 adapterPopularMeal.updateList(mealItemArrayList);
                 Glide.with(this).load(mealItemArrayList.get(1).getStrMealThumb()).into(binding.imgRandomMeal);
+                onRandomClickListener(mealItemArrayList);
             }
         });
 
     }
-    public void observerCategoriesLocal(){
+
+    public void observerCategoriesLocal() {
         homeViewModel.getLiveDataLocalCategories().observe(getViewLifecycleOwner(), categoryItems -> {
             ArrayList<CategoryItem> categoryItemArrayList = new ArrayList<>(categoryItems);
-            if (categoryItemArrayList.size()>0) {
+            if (categoryItemArrayList.size() > 0) {
                 adapterCategory.updateList(categoryItemArrayList);
             }
         });
@@ -100,6 +125,7 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
             for (int i = 0; i < mealItems.size(); i++) {
                 MealItem mealItem = mealItems.get(i);
                 homeViewModel.insertRandomMealItem(mealItem);
+
             }
             adapterPopularMeal.updateList(mealItems);
         });
@@ -118,10 +144,11 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
                 , mealItemPopularArrayList);
         binding.recViewMealsPopular.setAdapter(adapterPopularMeal);
     }
-    public void untilizeRecyclerCategoryView(){
+
+    public void untilizeRecyclerCategoryView() {
         binding.recyclerCatogries.setLayoutManager(new LinearLayoutManager(getContext(),
-                LinearLayoutManager.HORIZONTAL,false));
-        adapterCategory = new AdapterCategory(getContext(),categoryItems,this::onItemClickCategory);
+                LinearLayoutManager.HORIZONTAL, false));
+        adapterCategory = new AdapterCategory(getContext(), categoryItems, this);
         binding.recyclerCatogries.setAdapter(adapterCategory);
 
     }
@@ -133,7 +160,7 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     }
 
     @Override
-    public void onItemClickCategory(View view,int position) {
-        Log.i("ala",position+"");
+    public void onItemClickCategory(View view, int position) {
+        Log.i("ala", position + "");
     }
 }
