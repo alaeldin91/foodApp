@@ -50,6 +50,8 @@
     <string name="changePassword">تغير كلمة السر</string>
     <string name="mealName">اسم الوجبة</string>
     <string name="category">الصنف</string>
+    <string name="area">المنطقة</string>
+
 
 
 </resources>

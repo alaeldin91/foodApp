@@ -14,4 +14,5 @@ public interface CategoryItemDao {
     void insertCategoryListItem(CategoryItem categoryItem);
     @Query("SELECT * FROM categoryDb")
     LiveData<List<CategoryItem>> getCategories();
+
 }

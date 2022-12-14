@@ -49,6 +49,7 @@
     <string name="errorLoginDesc">please Rewrite Correct Mobile Number or Correct Password</string>
     <string name="changePassword">ChangePassword</string>
      <string name="mealName">Meal Name</string>
-    <string name="category">Category</string>
+    <string name="category">Category</string>\
+    <string name="area">Area</string>
 
 </resources>

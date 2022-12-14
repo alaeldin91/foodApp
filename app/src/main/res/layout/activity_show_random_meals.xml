@@ -22,6 +22,7 @@
             app:title="@string/mealName">
 
             <ImageView
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="TODO"
@@ -95,14 +96,14 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginBottom="@dimen/_5sdp"
                 android:drawableRight="@drawable/ic_location"
-                android:text="@string/category"
+                android:text="@string/area"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
             </TextView>
 
             <TextView
-                android:id="@+id/tvCate"
+                android:id="@+id/tvArea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_5sdp"
@@ -115,6 +116,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/instructor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/_55sdp"
@@ -144,6 +146,7 @@
         android:layout_gravity="bottom|center"
        >
     <ImageView
+        android:id="@+id/imageYouTube"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/youtube"
