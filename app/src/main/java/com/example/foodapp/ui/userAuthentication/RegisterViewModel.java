@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.foodapp.MainActivity;
@@ -23,6 +22,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 @HiltViewModel
 public class RegisterViewModel extends ViewModel {
     private final UserAuthenticationRepository userAuthenticationRepository;
+
     @Inject
     public RegisterViewModel(UserAuthenticationRepository userAuthenticationRepository) {
         this.userAuthenticationRepository = userAuthenticationRepository;

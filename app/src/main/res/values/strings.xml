@@ -48,8 +48,13 @@
     <string name="loginError">Login Error</string>
     <string name="errorLoginDesc">please Rewrite Correct Mobile Number or Correct Password</string>
     <string name="changePassword">ChangePassword</string>
-     <string name="mealName">Meal Name</string>
-    <string name="category">Category</string>\
+    <string name="mealName">Meal Name</string>
+    <string name="category">Category</string>
     <string name="area">Area</string>
+    <string name="newPassword">New Password</string>
+    <string name="oldPassword">oldPassword</string>
+    <string name="oldPasswordQuestion">Please Enter your Old Password</string>
+    <string name="newPasswordQuestion">Please enter your New Password</string>
+    <string name="confirmPasswordQuestion">Please Confirm Password</string>
 
 </resources>

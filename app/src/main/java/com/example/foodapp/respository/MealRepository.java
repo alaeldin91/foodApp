@@ -40,6 +40,5 @@ public class MealRepository {
     public Observable<MealList> getDetailsMeals(String id){
         return  apiService.getDetailMeal(id);
     }
-
-
 }
+

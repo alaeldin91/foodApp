@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
@@ -15,17 +16,18 @@ import com.example.foodapp.helper.PreferencesHelper;
 import com.example.foodapp.model.MealItem;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class ShowRandomMeals extends AppCompatActivity {
     ActivityShowRandomMealsBinding binding;
+    String categoryName;
     private PreferencesHelper preferencesHelper;
     private DetailsMealsViewModel detailsMealsViewModel;
     private String mealName;
     private String mealThumb;
-    String categoryName;
     private String uriImage;
 
 
@@ -43,9 +45,22 @@ public class ShowRandomMeals extends AppCompatActivity {
         getMealInformationFrom();
         setInformationViews();
         loadCase();
+        observerLocalDetails();
+        detailsMealsViewModel.getLocalDetailsMeals();
         binding.imageYouTube.setOnClickListener(view -> {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uriImage));
-        startActivity(i);
+            Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(uriImage));
+            startActivity(i);
+        });
+    }
+
+    public void observerLocalDetails() {
+        detailsMealsViewModel.getLiveLocalDetails().observe(this, new Observer<List<MealItem>>() {
+            @Override
+            public void onChanged(List<MealItem> mealItems) {
+                binding.tvArea.setText(mealItems.get(0).getStrArea());
+                binding.tvCategoryItem.setText(mealItems.get(0).getStrCategory());
+                binding.instructor.setText(mealItems.get(0).getStrInstructions());
+            }
         });
     }
 
@@ -74,17 +89,17 @@ public class ShowRandomMeals extends AppCompatActivity {
             onResponse();
             ArrayList<MealItem> mealItemArrayList1 = new ArrayList<>(mealItemArrayList);
             binding.tvArea.setText(mealItemArrayList1.get(0).getStrArea());
-           binding.tvCategoryItem.setText(mealItemArrayList1.get(0).getStrCategory());
+            binding.tvCategoryItem.setText(mealItemArrayList1.get(0).getStrCategory());
             binding.instructor.setText(mealItemArrayList1.get(0).getStrInstructions());
             uriImage = mealItemArrayList1.get(0).getStrYoutube();
-            //Log.i("Suleiman", mealItemArrayList1.get(0).getStrYoutube() + " ");
         });
     }
-    public void onResponse(){
-       binding.btnFloat.setVisibility(View.VISIBLE);
-       binding.progress.setVisibility(View.INVISIBLE);
-       binding.instructor.setVisibility(View.VISIBLE);
-       binding.tvCategoryItem.setVisibility(View.VISIBLE);
-       binding.tvArea.setVisibility(View.VISIBLE);
+
+    public void onResponse() {
+        binding.btnFloat.setVisibility(View.VISIBLE);
+        binding.progress.setVisibility(View.INVISIBLE);
+        binding.instructor.setVisibility(View.VISIBLE);
+        binding.tvCategoryItem.setVisibility(View.VISIBLE);
+        binding.tvArea.setVisibility(View.VISIBLE);
     }
 }

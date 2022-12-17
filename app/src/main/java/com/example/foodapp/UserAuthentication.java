@@ -28,11 +28,11 @@ public class UserAuthentication extends AppCompatActivity {
         String phoneNumber = preferencesHelper.getString("phoneNumber");
         String password = preferencesHelper.getString("password");
         Log.i("ala2",password+" "+phoneNumber);
-        if (phoneNumber != "" && password != ""){
+        if (!phoneNumber.equals("") && !password.equals(" ")){
             startActivity(new Intent(UserAuthentication.this,MainActivity.class));
 
         }
-        else if (phoneNumber.equals("")&&(password.equals(""))){
+        else if (phoneNumber.equals("")){
             LoginFragment loginFragment = new LoginFragment();
             setCurrentFragment(loginFragment);
         }
