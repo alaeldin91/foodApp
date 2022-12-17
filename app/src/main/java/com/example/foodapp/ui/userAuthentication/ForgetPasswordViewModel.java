@@ -3,6 +3,7 @@ package com.example.foodapp.ui.userAuthentication;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.ViewModel;
 
@@ -42,6 +43,7 @@ public class ForgetPasswordViewModel extends ViewModel {
                     @Override
                     public void onNext(@NonNull ForgetPassword forgetPassword) {
                         if (forgetPassword.getResponse().equals("ok")) {
+                            Toast.makeText(activity, "message" + forgetPassword.getResponse(), Toast.LENGTH_SHORT).show();
                             activity.startActivity(new Intent(activity, MainActivity.class));
                         } else {
                             activity.startActivity(new Intent(activity, Register.class));

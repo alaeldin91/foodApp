@@ -3,11 +3,12 @@ package com.example.foodapp.ui.userAuthentication;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.example.foodapp.MainActivity;
+import com.example.foodapp.UserAuthentication;
 import com.example.foodapp.model.RegisterModel;
 import com.example.foodapp.respository.UserAuthenticationRepository;
 
@@ -23,6 +24,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 @HiltViewModel
 public class RegisterViewModel extends ViewModel {
     private final UserAuthenticationRepository userAuthenticationRepository;
+
     @Inject
     public RegisterViewModel(UserAuthenticationRepository userAuthenticationRepository) {
         this.userAuthenticationRepository = userAuthenticationRepository;
@@ -49,7 +51,8 @@ public class RegisterViewModel extends ViewModel {
                         if (registerModel.getResponse().equals("ok")) {
                             activity.startActivity(new Intent(activity, MainActivity.class));
                         } else {
-                            activity.startActivity(new Intent(activity, Register.class));
+                            activity.startActivity(new Intent(activity, UserAuthentication.class));
+                            Toast.makeText(activity, "the User is exist", Toast.LENGTH_SHORT).show();
                         }
 
                     }

@@ -28,18 +28,14 @@ public class UserAuthentication extends AppCompatActivity {
         String phoneNumber = preferencesHelper.getString("phoneNumber");
         String password = preferencesHelper.getString("password");
         Log.i("ala2",password+" "+phoneNumber);
-        if (phoneNumber != "" && password != ""){
-            startActivity(new Intent(UserAuthentication.this,MainActivity.class));
-
-        }
-        else if (phoneNumber.equals("")&&(password.equals(""))){
+        if ((phoneNumber.equals(""))&& (password.equals(""))){
             LoginFragment loginFragment = new LoginFragment();
             setCurrentFragment(loginFragment);
+
         }
-
-
-
-
+        else{
+            startActivity(new Intent(UserAuthentication.this,MainActivity.class));
+        }
     }
     private void setCurrentFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frameUser, fragment).commit();

@@ -22,7 +22,7 @@ public interface ApiAuthService {
     Observable<LoginModel> login(@Field("tel") String phoneNumber, @Field("password") String password);
     @POST("UpdatePassword.php")
     @FormUrlEncoded
-    Observable<ForgetPassword> forgetPassword(@Field("newPassword")String newPassword,@Field("phoneNumber")String phoneNumber);
+    Observable<ForgetPassword> forgetPassword(@Field("password")String newPassword,@Field("phoneNumber")String phoneNumber);
 
 
 

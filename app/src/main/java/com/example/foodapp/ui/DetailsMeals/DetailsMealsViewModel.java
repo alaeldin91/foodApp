@@ -2,6 +2,7 @@ package com.example.foodapp.ui.DetailsMeals;
 
 import android.util.Log;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -10,6 +11,7 @@ import com.example.foodapp.model.MealList;
 import com.example.foodapp.respository.MealRepository;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -21,10 +23,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 public class DetailsMealsViewModel extends ViewModel {
     final MealRepository mealRepository;
     MutableLiveData<ArrayList<MealItem>> mealItemMutableLiveData = new MutableLiveData<>();
+    private LiveData<List<MealItem>> mealItemPopular;
 
     @Inject
     public DetailsMealsViewModel(MealRepository mealRepository) {
         this.mealRepository = mealRepository;
+        this.mealItemPopular = mealRepository.getLocalPopularMealItem();
     }
 
     public void getDetailsMeals(String id) {
@@ -35,11 +39,18 @@ public class DetailsMealsViewModel extends ViewModel {
                 return mealItemArrayList;
             }
         }).observeOn(Schedulers.io()).subscribe(result -> mealItemMutableLiveData.postValue(result),
-                error -> Log.i("haji", error.getMessage()));
+                error -> Log.i("hajji", error.getMessage()));
     }
 
     public MutableLiveData<ArrayList<MealItem>> getDetailsMutable(String id) {
         return mealItemMutableLiveData;
     }
 
+    public LiveData<List<MealItem>> getLiveLocalDetails() {
+        return mealItemPopular;
+    }
+
+    public void getLocalDetailsMeals() {
+        this.mealItemPopular = mealRepository.getLocalPopularMealItem();
+    }
 }

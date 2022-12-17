@@ -2,7 +2,6 @@ package com.example.foodapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +11,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
-import com.example.foodapp.ui.DetailsMeals.ShowRandomMeals;
+import com.example.foodapp.MainActivity;
+import com.example.foodapp.R;
 import com.example.foodapp.adapter.AdapterCategory;
 import com.example.foodapp.adapter.AdapterPopularMeal;
 import com.example.foodapp.databinding.FragmentHomeBinding;
 import com.example.foodapp.helper.PreferencesHelper;
 import com.example.foodapp.model.CategoryItem;
 import com.example.foodapp.model.MealItem;
+import com.example.foodapp.ui.DetailsMeals.ShowRandomMeals;
+import com.example.foodapp.ui.product.MealActivity;
 
 import java.util.ArrayList;
 
@@ -146,8 +149,8 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     }
 
     public void untilizeRecyclerCategoryView() {
-        binding.recyclerCatogries.setLayoutManager(new LinearLayoutManager(getContext(),
-                LinearLayoutManager.HORIZONTAL, false));
+        binding.recyclerCatogries.setLayoutManager(new GridLayoutManager(getContext(),
+                3, GridLayoutManager.VERTICAL, false));
         adapterCategory = new AdapterCategory(getContext(), categoryItems, this);
         binding.recyclerCatogries.setAdapter(adapterCategory);
 
@@ -161,6 +164,7 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
 
     @Override
     public void onItemClickCategory(View view, int position) {
-        Log.i("ala", position + "");
+      startActivity(new Intent(getActivity(), MealActivity.class));
+
     }
 }
