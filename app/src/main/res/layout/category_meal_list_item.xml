@@ -106,7 +106,9 @@
                         android:layout_marginStart="@dimen/_10sdp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/precentage"
-                        app:srcCompat="@drawable/ic_minase" />
+                        app:srcCompat="@drawable/ic_minase"
+                        android:contentDescription="TODO"
+                        tools:ignore="ContentDescription" />
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/plusQuantity"
@@ -118,7 +120,8 @@
                         android:layout_marginEnd="@dimen/_10sdp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/precentage"
-                        app:srcCompat="@drawable/ic_plus" />
+                        app:srcCompat="@drawable/ic_plus"
+                        android:contentDescription="TODO" />
 
                     <TextView
                         android:id="@+id/quantity"
