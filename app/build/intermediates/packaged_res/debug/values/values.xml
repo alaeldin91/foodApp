@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <color name="colorBackground">#E1C58C</color>
+    <color name="colorError">#973232</color>
+    <color name="colorOnPrimary">#B19C66</color>
+    <color name="colorPrimaryVariant">#f29e18</color>
+    <color name="colorSecondry">#C58E37</color>
+    <color name="colorSecondryVariant">#B17E2C</color>
+    <color name="colorSurface">#B69550</color>
+    <color name="onBackground">#B59E6F</color>
+    <color name="onError">#B12222</color>
+    <color name="onSecondary">#B17E2C</color>
+    <color name="onSurface">#9C7D3C</color>
+    <color name="primaryColor">#e9b221</color>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="component_label_horizontal_margin">@dimen/keyline_4</dimen>
+    <dimen name="elevation_default_top_app_bar">4dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fragment_horizontal_margin">16dp</dimen>
+    <dimen name="fragment_vertical_margin">16dp</dimen>
+    <dimen name="keyline_0">2dp</dimen>
+    <dimen name="keyline_1">4dp</dimen>
+    <dimen name="keyline_2">8dp</dimen>
+    <dimen name="keyline_4">16dp</dimen>
+    <dimen name="keyline_5">24dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="spacing_large">15dp</dimen>
+    <dimen name="spacing_medium">5dp</dimen>
+    <dimen name="spacing_middle">10dp</dimen>
+    <dimen name="spacing_mlarge">20dp</dimen>
+    <dimen name="spacing_mxlarge">25dp</dimen>
+    <dimen name="spacing_small">3dp</dimen>
+    <dimen name="spacing_smlarge">18dp</dimen>
+    <dimen name="spacing_xlarge">35dp</dimen>
+    <dimen name="spacing_xmedium">7dp</dimen>
+    <dimen name="spacing_xmlarge">40dp</dimen>
+    <dimen name="spacing_xsmall">2dp</dimen>
+    <dimen name="spacing_xxlarge">50dp</dimen>
+    <dimen name="spacing_xxxlarge">55dp</dimen>
+    <string name="Notification">Notification</string>
+    <string name="app_name">FoodApp</string>
+    <string name="area">Area</string>
+    <string name="cancel">Cancel</string>
+    <string name="categories">Categories</string>
+    <string name="category">Category</string>
+    <string name="changePassword">ChangePassword</string>
+    <string name="confirmPassword">ConfirmPassword</string>
+    <string name="confirmPasswordQuestion">Please Confirm Password</string>
+    <string name="default_web_client_id" translatable="false">407374723179-8508n54abmmjopeg068bsglmqpbju3a1.apps.googleusercontent.com</string>
+    <string name="email">Email</string>
+    <string name="enterConfirmPassword">please enter Confirm Password</string>
+    <string name="enterEmail">please enter Email Number</string>
+    <string name="enterFirstName">please enter First Name </string>
+    <string name="enterPassword">please enter Password</string>
+    <string name="enterPhoneNumber">please enter Phone Number</string>
+    <string name="enterSecondName">please enter Second Name </string>
+    <string name="errorConfirmPassword">Error confirm password</string>
+    <string name="errorDescConfirmPassword">Password is not Same Confirm Password please enter again</string>
+    <string name="errorLoginDesc">please Rewrite Correct Mobile Number or Correct Password</string>
+    <string name="firstName">FirstName</string>
+    <string name="forgetPassword">Forget Password</string>
+    <string name="gcm_defaultSenderId" translatable="false">407374723179</string>
+    <string name="google_api_key" translatable="false">AIzaSyCovLbbP-xnzLeudNHq2xJalb_hZsBrnNU</string>
+    <string name="google_app_id" translatable="false">1:407374723179:android:507799d9a9e42e03a3592e</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCovLbbP-xnzLeudNHq2xJalb_hZsBrnNU</string>
+    <string name="google_storage_bucket" translatable="false">foodapp-7c632.appspot.com</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="likeEat">What Would like eat </string>
+    <string name="login">Login</string>
+    <string name="loginError">Login Error</string>
+    <string name="login_cancelled">Login Cancelled</string>
+    <string name="logout">Logout</string>
+    <string name="logoutDesc">your logout click ok to Logout or Cancel to cancel Logout</string>
+    <string name="mealName">Meal Name</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="newPassword">New Password</string>
+    <string name="newPasswordQuestion">Please enter your New Password</string>
+    <string name="no_Internet">Internet Is Not Available </string>
+    <string name="ok">Ok</string>
+    <string name="oldPassword">oldPassword</string>
+    <string name="oldPasswordQuestion">Please Enter your Old Password</string>
+    <string name="overPopular">over popular for items</string>
+    <string name="password">Password</string>
+    <string name="phoneNumber">PhoneNumber</string>
+    <string name="project_id" translatable="false">foodapp-7c632</string>
+    <string name="register">Register</string>
+    <string name="registerNow">Register Now</string>
+    <string name="secondName">SecondName</string>
+    <string name="signUp">SignUp </string>
+    <string name="un_known_Error">Error is un Known </string>
+    <string name="un_known_SignIn">Un known Login</string>
+    <string name="verficationUser">Verfication User</string>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        
+
+    </style>
+    <style name="Theme.FoodApp" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+
+        
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorSecondary">@color/colorSecondry</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorError">@color/colorError</item>
+
+        
+        <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
+        <item name="colorSecondaryVariant">@color/colorSecondryVariant</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorOnSecondary">@color/onSecondary</item>
+        <item name="colorOnBackground">@color/onBackground</item>
+        <item name="colorOnError">@color/onError</item>
+        <item name="colorOnSurface">@color/onSurface</item>
+        <item name="scrimBackground" ns1:ignore="PrivateResource">@color/mtrl_scrim_color</item>
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1
+        </item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2
+        </item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3
+        </item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4
+        </item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5
+        </item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2
+        </item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
+
+    </style>
+</resources>

@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\category_item.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\category_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\activity_user_authnication.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\activity_user_authnication.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\app_bar_meal_category.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\app_bar_meal_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\app_bar_verfication_user.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\app_bar_verfication_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_verfication_forget_password.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_verfication_forget_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_forget_password.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_forget_password.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\activity_show_random_meals.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\activity_show_random_meals.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\dialoge_logout.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\dialoge_logout.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\content_main.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\content_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_home2.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_home2.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\activity_meal.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\activity_meal.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_gallery.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_favourite.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_favourite.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_register.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\popular_item.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\popular_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\app_bar_main.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_verfication_user.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_verfication_user.xml"
+    },
+    {
+        "merged": "com.example.foodapp-mergeDebugResources-57:/layout/activity_meal.xml",
+        "source": "com.example.foodapp-main-60:/layout/activity_meal.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_login.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_slideshow.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\nav_header_main.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\dialog_login.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\dialog_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\lay_custom_dialog.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\lay_custom_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-mergeDebugResources-57:\\layout\\fragment_meal_by_category.xml",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\7.3.3\\com.example.foodapp-main-60:\\layout\\fragment_meal_by_category.xml"
+    }
+]

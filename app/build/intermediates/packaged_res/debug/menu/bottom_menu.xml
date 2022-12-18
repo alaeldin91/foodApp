@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Home"
+        android:id="@+id/home"
+        android:textSize="@dimen/_15sdp"
+        android:icon="@drawable/home"/>
+    <item android:title="Favourite"
+        android:id="@+id/favourite"
+        android:textSize="@dimen/_15sdp"
+        android:icon="@drawable/favourite"/>
+</menu>
