@@ -2,6 +2,7 @@ package com.example.foodapp.Network;
 
 import com.example.foodapp.model.CategoryList;
 import com.example.foodapp.model.MealList;
+import com.example.foodapp.model.MealListByCategory;
 import com.example.foodapp.model.RegisterModel;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -23,7 +24,7 @@ public interface ApiService {
     Observable<CategoryList> getCategory();
     @GET("lookup.php?")
     Observable<MealList> getDetailMeal(@Query("i") String id);
-   
+
 
 
 }
