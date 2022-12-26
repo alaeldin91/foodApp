@@ -23,6 +23,7 @@ public interface ApiService {
     Observable<CategoryList> getCategory();
     @GET("lookup.php?")
     Observable<MealList> getDetailMeal(@Query("i") String id);
+   
 
 
 }
