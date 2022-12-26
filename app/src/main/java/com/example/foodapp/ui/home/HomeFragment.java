@@ -2,6 +2,7 @@ package com.example.foodapp.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -163,8 +164,10 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     }
 
     @Override
-    public void onItemClickCategory(View view, int position) {
-      startActivity(new Intent(getActivity(), MealActivity.class));
+    public void onItemClickCategory(View view, int position,ArrayList<CategoryItem>categoryItems) {
+        Intent intent = new Intent(getActivity(),MealActivity.class);
+        Log.i("ala",categoryItems.get(position).getStrCategory());
+      startActivity(intent);
 
     }
 }
