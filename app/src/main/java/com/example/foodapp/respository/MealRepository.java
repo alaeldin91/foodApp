@@ -6,6 +6,7 @@ import com.example.foodapp.Network.ApiService;
 import com.example.foodapp.db.MealRandomItemDao;
 import com.example.foodapp.model.MealItem;
 import com.example.foodapp.model.MealList;
+import com.example.foodapp.model.MealListByCategory;
 
 import java.util.List;
 
@@ -34,11 +35,17 @@ public class MealRepository {
     public Observable<MealList> getPopularMealsItem(String category) {
         return apiService.getPopularItems(category);
     }
-    public LiveData<List<MealItem>> getLocalPopularMealItem(){
+
+    public LiveData<List<MealItem>> getLocalPopularMealItem() {
         return mealRandomItemDao.getMeal();
     }
-    public Observable<MealList> getDetailsMeals(String id){
-        return  apiService.getDetailMeal(id);
+
+    public Observable<MealList> getDetailsMeals(String id) {
+        return apiService.getDetailMeal(id);
+    }
+
+    public Observable<MealListByCategory> getMealByCategory(String category) {
+        return apiService.getMealItemByCategory(category);
     }
 }
 

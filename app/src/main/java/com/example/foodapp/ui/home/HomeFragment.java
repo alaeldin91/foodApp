@@ -166,7 +166,8 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
     @Override
     public void onItemClickCategory(View view, int position,ArrayList<CategoryItem>categoryItems) {
         Intent intent = new Intent(getActivity(),MealActivity.class);
-        Log.i("ala",categoryItems.get(position).getStrCategory());
+        String categoryName= categoryItems.get(position).getStrCategory();
+       intent.putExtra("categoryName",categoryName);
       startActivity(intent);
 
     }
