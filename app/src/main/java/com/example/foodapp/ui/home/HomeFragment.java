@@ -129,7 +129,6 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
             for (int i = 0; i < mealItems.size(); i++) {
                 MealItem mealItem = mealItems.get(i);
                 homeViewModel.insertRandomMealItem(mealItem);
-
             }
             adapterPopularMeal.updateList(mealItems);
         });
@@ -171,4 +170,5 @@ public class HomeFragment extends Fragment implements AdapterCategory.OnItemClic
       startActivity(intent);
 
     }
+
 }
