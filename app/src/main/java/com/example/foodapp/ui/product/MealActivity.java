@@ -7,9 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.foodapp.R;
 import com.example.foodapp.adapter.AdapterMealByCategory;
 import com.example.foodapp.databinding.ActivityMealBinding;
 import com.example.foodapp.model.MealByCategory;
@@ -28,7 +25,6 @@ public class MealActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_meal);
         activityMealBinding = ActivityMealBinding.inflate(getLayoutInflater());
         setContentView(activityMealBinding.getRoot());
         Intent intent = getIntent();
@@ -51,7 +47,7 @@ public class MealActivity extends AppCompatActivity {
 
     public void utilizeRecyclerMealByCategory() {
        activityMealBinding.recViewMeals.setLayoutManager(new
-                GridLayoutManager(getApplicationContext(), 1, GridLayoutManager.VERTICAL, false));
+                GridLayoutManager(getApplicationContext(), 2, GridLayoutManager.VERTICAL, false));
        adapterMealByCategory = new AdapterMealByCategory(this,mealByCategories);
        activityMealBinding.recViewMeals.setAdapter(adapterMealByCategory);
     }
