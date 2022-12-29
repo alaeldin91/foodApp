@@ -22,7 +22,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardImageMeal"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_140sdp"
+                android:layout_height="@dimen/_220sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_20sdp"
                 app:cardElevation="@dimen/_15sdp"
@@ -32,8 +32,8 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-                    android:layout_width="@dimen/_100sdp"
-                    android:layout_height="@dimen/_140sdp"
+                    android:layout_width="@dimen/_225sdp"
+                    android:layout_height="@dimen/_220sdp"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical">
@@ -42,37 +42,70 @@
                         android:id="@+id/imageFavourite"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
-                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_30sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         app:layout_constraintHorizontal_bias="0.10"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/ic_favorites"
                         tools:ignore="ContentDescription,HardcodedText" />
+                     <FrameLayout
+                         android:layout_width="@dimen/_200sdp"
+                         android:layout_height="@dimen/_150sdp"
+                         >
+
 
                     <ImageView
                         android:id="@+id/categoryImageMeal"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_80sdp"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_150sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:scaleType="fitCenter"
                         android:src="@drawable/login"
                         tools:ignore="ContentDescription,HardcodedText">
-
                     </ImageView>
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:layout_gravity="center|bottom"
+                             android:orientation="horizontal">
+                         <com.google.android.material.button.MaterialButton
+                             android:id="@+id/price"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:text="30"
+                             android:textColor="#fff"
+                             android:textSize="@dimen/_12sdp"
+                             android:textStyle="bold"
+                             app:popupTheme="@style/Theme.FoodApp">
 
-                    <TextView
-                        android:id="@+id/txtMealCategory"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/_20sdp"
-                        android:layout_marginEnd="@dimen/_20sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:textColor="#fff"
-                        android:textSize="@dimen/_15sdp"
-                        android:textStyle="bold"
-                        app:popupTheme="@style/Theme.FoodApp">
+                    </com.google.android.material.button.MaterialButton>
+                             <com.google.android.material.button.MaterialButton
+                                 android:id="@+id/aed"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="@string/aed"
+                                 android:textColor="#fff"
+                                 android:textSize="@dimen/_12sdp"
+                                 android:textStyle="bold"
+                                 app:popupTheme="@style/Theme.FoodApp">
+                             </com.google.android.material.button.MaterialButton>
+                         </LinearLayout>
+                     </FrameLayout>
 
-                    </TextView>
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtMealCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:textColor="#fff"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    app:popupTheme="@style/Theme.FoodApp">
+
+
+                    </com.google.android.material.textview.MaterialTextView>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 

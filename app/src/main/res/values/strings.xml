@@ -57,5 +57,6 @@
     <string name="newPasswordQuestion">Please enter your New Password</string>
     <string name="confirmPasswordQuestion">Please Confirm Password</string>
     <string name="zero">0</string>
+    <string name="aed">aed</string>
 
 </resources>
