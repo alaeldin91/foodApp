@@ -17,21 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         >
     </include>
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar_verfication"
-        android:layout_marginBottom="@dimen/_40sdp">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardTitle"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar_verfication"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginEnd="@dimen/_5sdp"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="@dimen/_5sdp"
         app:cardCornerRadius="@dimen/_7sdp"
         app:cardElevation="@dimen/_5sdp"
@@ -86,21 +79,29 @@
                 >
             </ImageView>
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </com.google.android.material.card.MaterialCardView>
-            <com.google.android.material.card.MaterialCardView
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_40sdp"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardTitle">
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_5sdp"
             app:cardCornerRadius="@dimen/_10sdp"
-                app:cardElevation="@dimen/_5sdp"
-            app:layout_constraintTop_toBottomOf="@+id/materialCardTitle"
+            app:cardElevation="@dimen/_5sdp"
             app:cardMaxElevation="@dimen/_5sdp">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rec_view_meals"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="match_parent"/>
         </com.google.android.material.card.MaterialCardView>
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

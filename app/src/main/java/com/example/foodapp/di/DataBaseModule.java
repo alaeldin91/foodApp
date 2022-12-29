@@ -6,7 +6,6 @@ import androidx.room.Room;
 
 import com.example.foodapp.db.CategoryItemDao;
 import com.example.foodapp.db.FoodDb;
-import com.example.foodapp.db.MealByCategoryDao;
 import com.example.foodapp.db.MealRandomItemDao;
 
 import javax.inject.Singleton;
@@ -35,10 +34,5 @@ public class DataBaseModule {
     @Singleton
     public static CategoryItemDao provideFoodDbCategory(FoodDb foodDb){
         return foodDb.categoryItemDao();
-    }
-    @Provides
-    @Singleton
-    public static MealByCategoryDao provideMealByCategory(FoodDb foodDb){
-        return foodDb.mealByCategoryDao();
     }
 }
