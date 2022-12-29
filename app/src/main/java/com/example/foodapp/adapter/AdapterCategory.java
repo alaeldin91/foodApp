@@ -16,14 +16,15 @@ import com.example.foodapp.model.CategoryItem;
 import java.util.ArrayList;
 
 public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.CategoryViewHolder> {
+    public OnItemClickCategory onItemClickCategory;
     private Context context;
     private ArrayList<CategoryItem> categoryItems;
     private CategoryItemBinding categoryItemBinding;
-    public OnItemClickCategory onItemClickCategory;
-    public AdapterCategory(Context context, ArrayList<CategoryItem> categoryItems,OnItemClickCategory onItemClickCategory) {
+
+    public AdapterCategory(Context context, ArrayList<CategoryItem> categoryItems, OnItemClickCategory onItemClickCategory) {
         this.context = context;
         this.categoryItems = categoryItems;
-        this.onItemClickCategory= onItemClickCategory;
+        this.onItemClickCategory = onItemClickCategory;
     }
 
     @NonNull
@@ -54,7 +55,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Catego
     }
 
     public interface OnItemClickCategory {
-        public void onItemClickCategory(View view,int position);
+        public void onItemClickCategory(View view, int position, ArrayList<CategoryItem> categoryItems);
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder {
@@ -66,7 +67,7 @@ public class AdapterCategory extends RecyclerView.Adapter<AdapterCategory.Catego
             categoryItemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    onItemClickCategory.onItemClickCategory(view,getAdapterPosition());
+                    onItemClickCategory.onItemClickCategory(view, getAdapterPosition(), categoryItems);
                 }
             });
 

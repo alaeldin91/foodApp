@@ -38,6 +38,4 @@ public class NetworkModule {
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create()).build().create(ApiAuthService.class);
     }
 
-
-
 }

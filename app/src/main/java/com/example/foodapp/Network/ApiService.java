@@ -2,6 +2,7 @@ package com.example.foodapp.Network;
 
 import com.example.foodapp.model.CategoryList;
 import com.example.foodapp.model.MealList;
+import com.example.foodapp.model.MealListByCategory;
 import com.example.foodapp.model.RegisterModel;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -15,15 +16,15 @@ import retrofit2.http.Query;
 public interface ApiService {
     @GET("random.php")
     Observable<MealList> getRandomMeals();
-
     @GET("filter.php")
     Observable<MealList> getPopularItems(@Query("c") String category);
-
     @GET("categories.php")
     Observable<CategoryList> getCategory();
     @GET("lookup.php?")
     Observable<MealList> getDetailMeal(@Query("i") String id);
-   
+    @GET("filter.php")
+    Observable<MealListByCategory>getMealItemByCategory(@Query("c")String category);
+
 
 
 }

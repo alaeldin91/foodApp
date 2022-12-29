@@ -94,5 +94,4 @@ public class HomeViewModel extends ViewModel {
         this.categoryLocalItem = categoryRepository.getLocalCategoryList();
     }
 
-
 }
