@@ -59,4 +59,5 @@ public class AdapterPopularMeal extends RecyclerView.Adapter<AdapterPopularMeal.
 
         }
     }
+
 }

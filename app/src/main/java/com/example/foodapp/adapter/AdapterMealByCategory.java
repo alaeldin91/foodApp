@@ -2,10 +2,10 @@ package com.example.foodapp.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,19 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.foodapp.databinding.CategoryMealListItemBinding;
 import com.example.foodapp.model.MealByCategory;
-
 import java.util.ArrayList;
 
 public class AdapterMealByCategory extends RecyclerView.Adapter<AdapterMealByCategory.ViewHolderMealByCategory> {
+    public MealByCategoryInterface onItemClickListenerMealByCategory;
     ArrayList<MealByCategory> mealByCategories;
     CategoryMealListItemBinding categoryMealListItemBinding;
-    int countQuantity = 0;
     private Context context;
 
     public AdapterMealByCategory(Context context,
-                                 ArrayList<MealByCategory> mealByCategories) {
+                                 ArrayList<MealByCategory> mealByCategories,
+                                 MealByCategoryInterface onItemClickListen) {
         this.context = context;
         this.mealByCategories = mealByCategories;
+        this.onItemClickListenerMealByCategory = onItemClickListen;
     }
 
     @NonNull
@@ -42,27 +43,27 @@ public class AdapterMealByCategory extends RecyclerView.Adapter<AdapterMealByCat
                 into(holder.categoryMealListItemBinding.categoryImageMeal);
         holder.categoryMealListItemBinding.txtMealCategory.
                 setText(mealByCategories.get(position).getMealName());
-        holder.categoryMealListItemBinding.price.setText(30+"");
+        holder.categoryMealListItemBinding.price.setText(30 + "");
+
         // String qty = categoryMealListItemBinding.quantity.getText().toString();
-        holder.categoryMealListItemBinding.plusQuantity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countQuantity++;
-                holder.categoryMealListItemBinding.quantity.setText(String.valueOf(countQuantity));
-                Log.i("ala", countQuantity + "");
+
+        /** holder.categoryMealListItemBinding.plusQuantity.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View view) {
+        countQuantity++;
+        holder.categoryMealListItemBinding.quantity.setText(String.valueOf(countQuantity));
+        Log.i("ala", countQuantity + "");
 
 
-            }
-        });
-        holder.categoryMealListItemBinding.subscriptionQuantity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countQuantity--;
-                holder.categoryMealListItemBinding.quantity.setText(String.valueOf(countQuantity));
-            }
-        });
+        }
+        });**/
+        /**holder.categoryMealListItemBinding.subscriptionQuantity.setOnClickListener(new View.OnClickListener() {
+        @Override public void onClick(View view) {
+        countQuantity--;
+        holder.categoryMealListItemBinding.quantity.setText(String.valueOf(countQuantity));
+        }
+        });**/
+
     }
-
 
     @Override
     public int getItemCount() {
@@ -76,12 +77,32 @@ public class AdapterMealByCategory extends RecyclerView.Adapter<AdapterMealByCat
 
     }
 
+    public interface MealByCategoryInterface {
+        void onItemClickListenerPositive(View view, int position, ArrayList<MealByCategory> mealByCategory, TextView text);
+
+        void onItemClickListenerNegative(View view, int position, ArrayList<MealByCategory> mealByCategory, TextView textView);
+
+    }
+
     public class ViewHolderMealByCategory extends RecyclerView.ViewHolder {
         private final CategoryMealListItemBinding categoryMealListItemBinding;
 
         public ViewHolderMealByCategory(@NonNull CategoryMealListItemBinding categoryMealListItemBinding) {
             super(categoryMealListItemBinding.getRoot());
             this.categoryMealListItemBinding = categoryMealListItemBinding;
+            TextView textQuantity= this.categoryMealListItemBinding.quantity;
+
+            categoryMealListItemBinding.plusQuantity.setOnClickListener(view ->
+                    onItemClickListenerMealByCategory.
+                            onItemClickListenerPositive(view, getAdapterPosition(), mealByCategories,textQuantity));
+            this.categoryMealListItemBinding.subscriptionQuantity
+                    .setOnClickListener(view -> {
+                        onItemClickListenerMealByCategory.
+                                onItemClickListenerNegative(view, getAdapterPosition(), mealByCategories,textQuantity);
+                    });
         }
     }
+    /**public void getAllData(ArrayList<MealByCategory> allMealByCategory){
+     this.mealByCategories = allMealByCategory;
+     }**/
 }
