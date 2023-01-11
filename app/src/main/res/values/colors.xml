@@ -12,5 +12,7 @@
     <color name="onBackground">#B59E6F</color>
     <color name="onError">#B12222</color>
     <color name="onSurface">#9C7D3C</color>
+    <color name="addButton">#BEB244</color>
+
 
 </resources>

@@ -79,7 +79,7 @@ public class AdapterMealByCategory extends RecyclerView.Adapter<AdapterMealByCat
 
     public interface MealByCategoryInterface {
         void onItemClickListenerPositive(View view, int position, ArrayList<MealByCategory> mealByCategory, TextView text);
-
+         void onClickListenerAdd(View view,int position,ArrayList<MealByCategory> mealByCategory);
         void onItemClickListenerNegative(View view, int position, ArrayList<MealByCategory> mealByCategory, TextView textView);
 
     }
@@ -100,7 +100,14 @@ public class AdapterMealByCategory extends RecyclerView.Adapter<AdapterMealByCat
                         onItemClickListenerMealByCategory.
                                 onItemClickListenerNegative(view, getAdapterPosition(), mealByCategories,textQuantity);
                     });
+            this.categoryMealListItemBinding.addItem.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                  onItemClickListenerMealByCategory.onClickListenerAdd(view,getAdapterPosition(),mealByCategories);
+                }
+            });
         }
+
     }
     /**public void getAllData(ArrayList<MealByCategory> allMealByCategory){
      this.mealByCategories = allMealByCategory;

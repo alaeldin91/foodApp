@@ -4,23 +4,21 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
-
 import com.example.foodapp.adapter.AdapterMealByCategory;
 import com.example.foodapp.databinding.ActivityMealBinding;
 import com.example.foodapp.model.MealByCategory;
 import com.example.foodapp.model.TempTableProduct;
 import com.example.foodapp.ui.temp.TempProductViewModel;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -85,30 +83,13 @@ public class MealActivity extends AppCompatActivity implements AdapterMealByCate
             mealByCategory, TextView text) {
         countQuantity++;
         text.setText(countQuantity + "");
-        calacuteQuantityPositive(view,position,mealByCategory,text,countQuantity);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    private void calacuteQuantityPositive(View view, int position,
-                                          ArrayList<MealByCategory> mealByCategory, TextView textView, int quantity) {
-        countQuantity++;
-        textView.setText(countQuantity);
-        MealByCategory mealByCategoryModel = mealByCategory.get(position);
-        int id = mealByCategoryModel.getId();
-        String categoryName = intent.getStringExtra("categoryName");
-        String name = mealByCategoryModel.getMealImage();
-        double price = 30.0;
-        double total = price * quantity;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String date = dtf.format(now);
-
-        String imageProduct = mealByCategoryModel.getMealImage();
-        TempTableProduct tempTableProduct = new TempTableProduct(id, categoryName, name, price,
-                imageProduct, total, date, quantity);
-        tempProductViewModel.insertTempAllMeals(tempTableProduct);
-       // Log.i("meal", mealByCategoryModel.getMealName());
-
+    @Override
+    public void onClickListenerAdd(View view, int position, ArrayList<MealByCategory> mealByCategory) {
+        Log.i("add", position + "");
+        addMealsByCategoryTemp(position,mealByCategory);
     }
 
     @SuppressLint("SetTextI18n")
@@ -117,5 +98,23 @@ public class MealActivity extends AppCompatActivity implements AdapterMealByCate
             mealByCategory, TextView text) {
         countQuantity--;
         text.setText(countQuantity + "");
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addMealsByCategoryTemp(int position, ArrayList<MealByCategory> mealByCategory) {
+        MealByCategory mealByCategoryModel = mealByCategory.get(position);
+        int id = mealByCategoryModel.getId();
+        String categoryName = intent.getStringExtra("categoryName");
+        String name = mealByCategoryModel.getMealImage();
+        double price = 30.0;
+        double total = price * countQuantity;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date = dtf.format(now);
+        String imageProduct = mealByCategoryModel.getMealImage();
+        TempTableProduct tempTableProduct = new TempTableProduct(id, categoryName, name, price,
+                imageProduct, total, date, countQuantity);
+        tempProductViewModel.insertTempAllMeals(tempTableProduct);
     }
 }
