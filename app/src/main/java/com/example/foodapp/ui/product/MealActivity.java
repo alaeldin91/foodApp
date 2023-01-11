@@ -80,7 +80,6 @@ public class MealActivity extends AppCompatActivity implements AdapterMealByCate
         });
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("SetTextI18n")
     @Override
