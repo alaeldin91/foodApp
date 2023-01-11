@@ -2,8 +2,10 @@ package com.example.foodapp.ui.product;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -16,9 +18,12 @@ import com.example.foodapp.databinding.ActivityMealBinding;
 import com.example.foodapp.model.MealByCategory;
 import com.example.foodapp.model.TempTableProduct;
 import com.example.foodapp.ui.temp.TempProductViewModel;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
+import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
+import java.util.Date;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
@@ -88,8 +93,11 @@ public class MealActivity extends AppCompatActivity implements AdapterMealByCate
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onClickListenerAdd(View view, int position, ArrayList<MealByCategory> mealByCategory) {
-        Log.i("add", position + "");
-        addMealsByCategoryTemp(position,mealByCategory);
+        if (countQuantity <= 0)  {
+            Log.i("zero", "your are not data");
+        } else {
+            addMealsByCategoryTemp(view,position, mealByCategory);
+        }
     }
 
     @SuppressLint("SetTextI18n")
@@ -102,16 +110,19 @@ public class MealActivity extends AppCompatActivity implements AdapterMealByCate
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addMealsByCategoryTemp(int position, ArrayList<MealByCategory> mealByCategory) {
+    public void addMealsByCategoryTemp(View view,int position, ArrayList<MealByCategory> mealByCategory) {
         MealByCategory mealByCategoryModel = mealByCategory.get(position);
         int id = mealByCategoryModel.getId();
         String categoryName = intent.getStringExtra("categoryName");
         String name = mealByCategoryModel.getMealImage();
         double price = 30.0;
         double total = price * countQuantity;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
-        LocalDateTime now = LocalDateTime.now();
-        String date = dtf.format(now);
+       // DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyy/MM/dd HH:mm:ss");
+        String pattern = "MM/dd/yyyy";
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        Calendar c = Calendar.getInstance();
+        String date =  simpleDateFormat.format(c.getTime());
         String imageProduct = mealByCategoryModel.getMealImage();
         TempTableProduct tempTableProduct = new TempTableProduct(id, categoryName, name, price,
                 imageProduct, total, date, countQuantity);
