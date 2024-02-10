@@ -56,6 +56,5 @@
     <string name="oldPasswordQuestion">Please Enter your Old Password</string>
     <string name="newPasswordQuestion">Please enter your New Password</string>
     <string name="confirmPasswordQuestion">Please Confirm Password</string>
-    <string name="zero">0</string>
 
 </resources>
